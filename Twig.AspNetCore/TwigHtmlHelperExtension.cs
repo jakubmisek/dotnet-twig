@@ -57,7 +57,7 @@ namespace Microsoft.AspNetCore.Mvc  // implicitly imported namespace in Razor pa
             {
                 Path = path,
                 Name = name,
-                Data = model as PhpArray ?? Pchp.Core.Convert.ToArray(model),
+                Data = model as PhpArray ?? Pchp.Core.Convert.ToArray(model ?? htmlHelper.ViewData),
             };
         }
 
