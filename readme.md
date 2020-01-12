@@ -6,6 +6,20 @@ The Twig library is developed at https://github.com/twigphp/Twig/
 
 ## Basic usage
 
+### Add package reference to your Web Application
+
+```xml
+<PackageReference Include="Twig.AspNetCore" Version="3.0.1" />
+```
+
+or
+
+```shell
+dotnet add package Twig.AspNetCore -v 3.0.1
+```
+
+### Render Twig template in a razor page
+
 ```razor
 @{
     ViewData["Title"] = "My Twig Page";
@@ -16,8 +30,9 @@ The Twig library is developed at https://github.com/twigphp/Twig/
 
 ## Repository structure
 
-- **Twig.AspNetCore**: provides helpers for Razor pages.
 - **Twig.Twig**: contains the Twig library.
+- **Twig.AspNetCore**: provides helpers for Razor pages.
+- **Twig.AspNetCore.Demo**: a sample ASP.NET Core website rendering a twig template
 
 ## How it works
 
