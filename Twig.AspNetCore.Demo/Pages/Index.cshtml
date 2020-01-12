@@ -5,6 +5,6 @@
     ViewData["Name"] = "John Doe";
 }
 
-@Html.Twig("./templates", "index.html")
+@Html.Twig("./templates", "index.twig")
 
-@Html.Twig("./templates", "index.html", new { Name = "Peter" })
+@Html.Twig("./templates", "index.twig", new { Name = "Peter" })
