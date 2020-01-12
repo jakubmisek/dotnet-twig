@@ -1,0 +1,10 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["Name"] = "John Doe";
+}
+
+@Html.Twig("./templates", "index.html")
+
+@Html.Twig("./templates", "index.html", new { Name = "Peter" })
