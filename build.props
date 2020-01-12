@@ -1,0 +1,36 @@
+﻿<Project>
+
+  <!-- $(PeachpieVersion) property from the current Peachpie.NET.Sdk -->
+  <Import Project="Version.props" Sdk="Peachpie.NET.Sdk" Condition=" '$(PeachpieVersion)'=='' " />
+
+  <PropertyGroup>
+
+    <!-- common version -->
+    <VersionPrefix Condition=" '$(VersionPrefix)'=='' ">3.0.1</VersionPrefix>
+    <!--PeachpieVersion> specified in global.json </PeachpieVersion-->
+
+    <!-- metadata generation -->
+    <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- signing -->
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+
+  </PropertyGroup>
+
+  <!-- package -->
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/jakubmisek/dotnet-twig</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/jakubmisek/dotnet-twig</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+</Project>

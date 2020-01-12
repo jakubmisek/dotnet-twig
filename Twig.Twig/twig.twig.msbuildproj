@@ -1,0 +1,24 @@
+﻿<Project Sdk="Peachpie.NET.Sdk">
+
+  <Import Project="../build.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DisableImplicitPeachpieReferences>true</DisableImplicitPeachpieReferences>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NoWarn>PHP0125,PHP5011</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- do not reference entire PeachPie.App, only a few libraries Twig actually needs -->
+    <PackageReference Include="Peachpie.Runtime" Version="$(PeachpieVersion)" />
+    <PackageReference Include="Peachpie.Library" Version="$(PeachpieVersion)" />
+    <PackageReference Include="Peachpie.Library.XmlDom" Version="$(PeachpieVersion)" />
+    <PackageReference Include="Peachpie.Library.Scripting" Version="$(PeachpieVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="**/*.php;" Exclude="**/*TestCase.php;obj/**;bin/**" />
+  </ItemGroup>
+  
+</Project>
