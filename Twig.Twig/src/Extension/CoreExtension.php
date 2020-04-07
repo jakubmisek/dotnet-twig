@@ -373,7 +373,7 @@ function twig_random(Environment $env, $values = null, $max = null)
         $charset = $env->getCharset();
 
         if ('UTF-8' !== $charset) {
-            $values = iconv($charset, 'UTF-8', $values);
+            $values = twig_convert_encoding($values, 'UTF-8', $charset);
         }
 
         // unicode version of str_split()
@@ -382,7 +382,7 @@ function twig_random(Environment $env, $values = null, $max = null)
 
         if ('UTF-8' !== $charset) {
             foreach ($values as $i => $value) {
-                $values[$i] = iconv('UTF-8', $charset, $value);
+                $values[$i] = twig_convert_encoding($value, $charset, 'UTF-8');
             }
         }
     }
@@ -525,11 +525,11 @@ function twig_replace_filter($str, $from)
  */
 function twig_round($value, $precision = 0, $method = 'common')
 {
-    if ('common' == $method) {
+    if ('common' === $method) {
         return round($value, $precision);
     }
 
-    if ('ceil' != $method && 'floor' != $method) {
+    if ('ceil' !== $method && 'floor' !== $method) {
         throw new RuntimeError('The round filter only supports the "common", "ceil", and "floor" methods.');
     }
 
@@ -847,7 +847,7 @@ function twig_reverse_filter(Environment $env, $item, $preserveKeys = false)
     $charset = $env->getCharset();
 
     if ('UTF-8' !== $charset) {
-        $item = iconv($charset, 'UTF-8', $string);
+        $item = twig_convert_encoding($string, 'UTF-8', $charset);
     }
 
     preg_match_all('/./us', $item, $matches);
@@ -855,7 +855,7 @@ function twig_reverse_filter(Environment $env, $item, $preserveKeys = false)
     $string = implode('', array_reverse($matches[0]));
 
     if ('UTF-8' !== $charset) {
-        $string = iconv('UTF-8', $charset, $string);
+        $string = twig_convert_encoding($string, $charset, 'UTF-8');
     }
 
     return $string;
@@ -1029,6 +1029,10 @@ function twig_spaceless($content)
 
 function twig_convert_encoding($string, $to, $from)
 {
+    if (!function_exists('iconv')) {
+        throw new RuntimeError('Unable to convert encoding: required function iconv() does not exist. You should install ext-iconv or symfony/polyfill-iconv.');
+    }
+
     return iconv($from, $to, $string);
 }
 
@@ -1180,7 +1184,7 @@ function twig_to_array($seq, $preserveKeys = true)
 function twig_test_empty($value)
 {
     if ($value instanceof \Countable) {
-        return 0 == \count($value);
+        return 0 === \count($value);
     }
 
     if ($value instanceof \Traversable) {

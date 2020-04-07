@@ -9,13 +9,13 @@ The Twig library is developed at https://github.com/twigphp/Twig/
 ### Add package reference to your Web Application
 
 ```xml
-<PackageReference Include="Twig.AspNetCore" Version="3.0.1" />
+<PackageReference Include="Twig.AspNetCore" Version="3.0.3" />
 ```
 
 or
 
 ```shell
-dotnet add package Twig.AspNetCore -v 3.0.1
+dotnet add package Twig.AspNetCore -v 3.0.3
 ```
 
 ### Render Twig template in a razor page
