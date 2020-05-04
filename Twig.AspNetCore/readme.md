@@ -6,6 +6,7 @@ The sources of original library are maintained at https://github.com/twigphp/Twi
 
 **Render Twig template in a razor page**
 
+*Index.cshtml:*
 ```razor
 @{
     ViewData["Title"] = "My Twig Page";
@@ -13,6 +14,17 @@ The sources of original library are maintained at https://github.com/twigphp/Twi
 
 @Html.Twig("/path/to/templates", "index.html", new { name = "John Doe", });
 ```
+
+*path/to/templates/index.html:*
+```html
+<p>
+    Hello {{ Name }}!
+</p>
+```
+
+**Template data (model)**
+
+The last argument specifies the template data. It can be any `object`, `PhpArray`, `IDictionary` or `null`. In case it is ommited or `null`, the page's `ViewData` are used implicitly.
 
 ## How it works
 
