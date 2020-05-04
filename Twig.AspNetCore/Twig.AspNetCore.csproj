@@ -3,10 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <PackageTags>peachpie;twig;web;mvc;razor</PackageTags>
+    <PackageTags>peachpie,twig,web,mvc,razor</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description></Description>
-    <PackageIcon>$(IconFileName)</PackageIcon>
+    <Description>Provides Twig templates parsing and rendering for .NET.</Description>
+    <PackageIcon>assets/$(IconFileName)</PackageIcon>
+    <Title>Twig for ASP.NET Core</Title>
+    <Authors>Fabien Potencier;Twig Team</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../$(IconFileName)" Pack="true" PackagePath="$(IconFileName)" />
+    <None Include="../$(IconFileName)" Pack="true" PackagePath="assets/$(IconFileName)" />
+    <None Include="readme.md" Pack="true" PackagePath="assets/readme.md" />
   </ItemGroup>
 
 </Project>
