@@ -6,6 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <NoWarn>PHP0125,PHP5011</NoWarn>
     <PhpRelativePath>vendor/twig/twig</PhpRelativePath>
+    <PackageIcon>$(IconFileName)</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
