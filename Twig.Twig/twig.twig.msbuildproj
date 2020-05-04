@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <Compile Include="**/*.php;" Exclude="**/*TestCase.php;obj/**;bin/**" />
+    <None Include="twig.twig.manifest" Pack="true" PackagePath="twig.twig.manifest" />
+    <None Include="../$(IconFileName)" Pack="true" PackagePath="$(IconFileName)" />
   </ItemGroup>
   
 </Project>

@@ -23,6 +23,8 @@
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
 
+    <IconFileName>twig-logo.png</IconFileName>
+
   </PropertyGroup>
 
   <!-- package -->
